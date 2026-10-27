@@ -1,0 +1,31 @@
+---
+title: Creative Stationery Store Normalised
+---
+erDiagram
+    PACK ||--|{ STATIONERY_PACK : contains
+    PRODUCT ||--o{ STATIONERY_PACK : included_in
+    SUPPLIER ||--o{ PRODUCT : supplies
+
+    PACK {
+        string PackType PK
+        decimal PackSellingPrice
+        int PacksSoldWeekly
+    }
+
+    PRODUCT {
+        string ProductName PK
+        decimal UnitCost
+        string SupplierName FK
+    }
+
+    SUPPLIER {
+        string SupplierName PK
+        string SupplierSuburb
+    }
+
+    STATIONERY_PACK {
+        string PackType PK, FK
+        string ProductName PK, FK
+        int ProductQuantity
+    }
+
