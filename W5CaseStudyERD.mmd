@@ -1,0 +1,29 @@
+---
+title: Creative Stationery Store Case Study
+---
+erDiagram
+    PACK ||--|{ PACK_PRODUCT : contains
+    PRODUCT ||--o{ PACK_PRODUCT : included_in
+    SUPPLIER ||--|{ PRODUCT : supplies
+
+    PACK {
+        string PackName PK
+        decimal SellingPrice
+        int WeeklySalesVolume
+    }
+
+    PRODUCT {
+        string ProductName PK
+        decimal UnitCost
+    }
+
+    SUPPLIER {
+        string SupplierName PK
+    }
+
+    PACK_PRODUCT {
+        string PackName PK
+        string ProductName PK
+        int Quantity
+    }
+
